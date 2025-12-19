@@ -25,7 +25,7 @@ resource "aws_ecs_cluster" "cluster" {
   
   
 }
-resource "aws_ecs_cluster_capacity_providers" "this" {
+resource "aws_ecs_cluster_capacity_providers" "provider" {
   cluster_name = aws_ecs_cluster.cluster.name
 
   capacity_providers = [
@@ -33,7 +33,7 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
     "FARGATE_SPOT"
   ]
 
-  default_capacity_provider = {
+  default_capacity_provider_strategy = {
     capacity_provider = "FARGATE"
     weight            = 1
     
@@ -149,8 +149,8 @@ resource "aws_ecs_service" "strapi" {
   desired_count   	= 1
   #launch_type     	= "FARGATE"
 
-  capacity_providers = {
-    capacity_provider = "FARGATE-SPOT"
+  capacity_providers_strategy = {
+    capacity_provider = "FARGATE_SPOT"
     weight            = 1
   }
 
@@ -166,5 +166,8 @@ resource "aws_ecs_service" "strapi" {
     container_port   = 1337
   }
 
-  depends_on = [aws_lb_listener.http]
+  depends_on = {
+    aws_lb_listener.http
+    aws_ecs_cluster_capacity_providers.provider,
+}
 }
