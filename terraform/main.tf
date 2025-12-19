@@ -167,7 +167,7 @@ resource "aws_ecs_service" "strapi" {
   }
 
   depends_on = [
-    aws_lb_listener.http
-    aws_ecs_cluster_capacity_providers.provider,
+    aws_lb_listener.http,
+    aws_ecs_cluster_capacity_providers.provider
 ]
 }
