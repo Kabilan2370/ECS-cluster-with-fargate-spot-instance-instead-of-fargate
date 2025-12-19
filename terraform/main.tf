@@ -22,9 +22,15 @@ data "aws_subnets" "default" {
 resource "aws_ecs_cluster" "cluster" {
   name = "docker-strapi-cluster"
 
+  
+  
+}
+resource "aws_ecs_cluster_capacity_providers" "this" {
+  cluster_name = aws_ecs_cluster.cluster.name
+
   capacity_providers = [
     "FARGATE",
-    "FARGATE-SPOT"
+    "FARGATE_SPOT"
   ]
 
   default_capacity_provider = {
@@ -32,8 +38,8 @@ resource "aws_ecs_cluster" "cluster" {
     weight            = 1
     
   }
-  
 }
+
 
 resource "aws_iam_role" "ecs_task_execution" {
   # name = "docker-ecsTaskExecutionRole"
