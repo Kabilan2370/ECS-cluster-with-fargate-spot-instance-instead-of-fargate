@@ -166,8 +166,8 @@ resource "aws_ecs_service" "strapi" {
     container_port   = 1337
   }
 
-  depends_on = {
+  depends_on = [
     aws_lb_listener.http
     aws_ecs_cluster_capacity_providers.provider,
-}
+]
 }
