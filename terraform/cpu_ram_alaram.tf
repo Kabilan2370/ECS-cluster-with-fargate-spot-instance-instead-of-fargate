@@ -1,8 +1,8 @@
 # Alarm for High CPU 
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   alarm_name          		= "docker-strapi-high-cpu"
-  comparison_operator 	= "GreaterThanThreshold"
-  evaluation_periods  	= 2
+  comparison_operator 	  = "GreaterThanThreshold"
+  evaluation_periods  	  = 2
   metric_name         		= "CPUUtilization"
   namespace           		= "AWS/ECS"
   period              		= 60
@@ -18,8 +18,8 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
 # Alarm for High memory
 resource "aws_cloudwatch_metric_alarm" "high_memory" {
   alarm_name          		= "docker-strapi-high-memory"
-  comparison_operator 	= "GreaterThanThreshold"
-  evaluation_periods  	= 2
+  comparison_operator 	  = "GreaterThanThreshold"
+  evaluation_periods  	  = 2
   metric_name         		= "MemoryUtilization"
   namespace           		= "AWS/ECS"
   period              		= 60
