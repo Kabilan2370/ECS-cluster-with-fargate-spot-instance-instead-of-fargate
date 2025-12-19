@@ -1,0 +1,1 @@
+# ECS-cluster-with-fargate-spot-instance-instead-of-fargate
