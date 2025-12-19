@@ -1,13 +1,13 @@
 # ECS-cluster-with-fargate-spot-instance-instead-of-fargate
 
 ## What is AWS ECS Fargate ? 
-        AWS ECS Fargate is a serverless compute engine for running containers on Amazon ECS (Elastic Container Service). The run containers will run without managing servers or infrastructure.
+AWS ECS Fargate is a serverless compute engine for running containers on Amazon ECS (Elastic Container Service). The run containers will run without managing servers or infrastructure.
 
 ## Why we are using fargate spot instead of fargate ?
-        We use Fargate Spot instead of standard Fargate mainly for cost savings. Fargate Spot is up to ~70% cheaper than regular Fargate. You’re paying less because AWS uses spare capacity.
+We use Fargate Spot instead of standard Fargate mainly for cost savings. Fargate Spot is up to ~70% cheaper than regular Fargate. You’re paying less because AWS uses spare capacity.
 
 ## What is Application Load Balancer ?
-        An Application Load Balancer is an AWS service that distributes incoming application traffic across multiple targets at the application layer (Layer 7).
+An Application Load Balancer is an AWS service that distributes incoming application traffic across multiple targets at the application layer (Layer 7).
 
 1. Using CI/CD workflows files butild and push the docker images into AWS ECR repo.
 2. Create a neccessary services via terraform.
