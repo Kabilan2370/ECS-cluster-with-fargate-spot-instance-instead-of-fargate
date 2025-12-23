@@ -110,7 +110,7 @@ resource "aws_ecs_task_definition" "strapi" {
     logConfiguration = {
       logDriver = "awslogs"
       options = {
-        "awslogs-group"         	= "/ecs/docker-strapi"
+        "awslogs-group"         	= "/ecs/docker-strapi-con"
         "awslogs-region"        	= "eu-north-1"
         "awslogs-stream-prefix" 	= "ecs"
       }
